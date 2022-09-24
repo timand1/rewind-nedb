@@ -1,0 +1,17 @@
+{
+  "name": "rewind-nedb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "nedb-promise": "^2.0.1",
+    "uuid": "^9.0.0"
+  }
+}
