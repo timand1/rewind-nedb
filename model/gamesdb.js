@@ -21,4 +21,9 @@ async function removeAll() {
     return result;
 }
 
-module.exports = { getGames, addGame, updateGame, removeAll }
+async function findGame(id) {
+    const result = await database.find({ gameId: id })
+    return result
+}
+
+module.exports = { getGames, addGame, updateGame, removeAll, findGame }

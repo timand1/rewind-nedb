@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const router = Router();
-const { getGames, addGame, updateGame, removeAll } = require('../model/gamesdb')
+const { getGames, addGame, updateGame, removeAll, findGame } = require('../model/gamesdb')
 
 router.get('/', async (req, res) => {
     const resObj = {
@@ -78,6 +78,25 @@ router.delete('/', async (req, res) => {
     }
 
     res.json(resObj) 
+})
+
+router.get('/:id', async (req, res) => {
+    const gameId = req.params.id
+    console.log(gameId)
+    
+    const resObj = {
+        success : false
+    }
+    
+    const chosenGame = await findGame(gameId)
+    if(chosenGame) {
+        resObj.success = true
+        resObj.game = chosenGame
+    } else {
+        resObj.message = 'Error'
+    }
+
+    res.json(resObj)
 })
 
 module.exports = router;
