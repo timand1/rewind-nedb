@@ -1,10 +1,12 @@
 const express = require('express');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 8001;
 const app = express();
 const { v4: uuidv4 } = require('uuid');
 const { createAccount, compareCredentials, checkIfAccountExist } = require('./model/accountdb')
-
+app.use(bodyParser.json({limit: '200mb'}));
+app.use(bodyParser.urlencoded({limit: '200mb', extended: true}));
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 

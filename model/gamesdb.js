@@ -12,7 +12,7 @@ async function addGame(gameInfo) {
 }
 
 async function updateGame(gameId, gameInfo) {    
-    const result = await database.update({gameId: gameId}, {$set: {team1: gameInfo.team1, team2: gameInfo.team2, win: gameInfo.win, lost: gameInfo.lost, duration: gameInfo.duration, date: gameInfo.date }})
+    const result = await database.update({gameId: gameId}, {$set: {team1: gameInfo.team1, team2: gameInfo.team2, win: gameInfo.win, lost: gameInfo.lost, duration: gameInfo.duration, date: gameInfo.date, image: gameInfo.image }})
     return result
 }
 
